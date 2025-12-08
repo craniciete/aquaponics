@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aquaponics - Log In</title>
+    <link rel="stylesheet" href="css/login.css">
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <form class="card-container" onsubmit="return false;">
+            <div class="logo-container">
+                <img src="assets/hydroponic.png" alt="">
+                <h1 class="logo-title">Aquaponics</h1>
+            </div>
+
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+
+            <button type="button" id="loginBtn">Log in</button>
+
+            <p id="login-status" style="margin-top:10px; color:#ff6b6b; font-size:14px;"></p>
+        </form>
+    </div>
+
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyBIKQ6DzjZmbwrMfRdf5n19aLt8cFIwdt8",
+            authDomain: "aquaponics-48aea.firebaseapp.com",
+            databaseURL: "https://aquaponics-48aea-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "aquaponics-48aea",
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        document.getElementById("loginBtn").onclick = () => {
+
+            let email = document.getElementById("email").value.trim();
+            let pass = document.getElementById("password").value.trim();
+            let status = document.getElementById("login-status");
+
+            status.innerText = "Checking...";
+
+            auth.signInWithEmailAndPassword(email, pass)
+                .then(() => {
+                    status.style.color = "#5cd65c";
+                    status.innerText = "Login successful! Redirecting...";
+
+                    setTimeout(() => {
+                        window.location.href = "index.html"; 
+                    }, 800);
+                })
+                .catch(err => {
+                    status.style.color = "#ff6b6b";
+                    status.innerText = err.message;
+                });
+        };
+    </script>
+
+</body>
+</html>

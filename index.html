@@ -3,11 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aquaponics</title>
+    <title>Aquaponics Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="nav">
-        <div class="nav-container"></div>
-    </div>
+    <header class="header-container">
+        <div class="header-logo">
+            <img src="assets/hydroponic.png" alt="aquaponics-logo">
+            <div class="logo-title">Aquaponics</div>
+        </div>
+        <button type="button" class="logout-button" onclick=goToLoginPage()>Log out</button>        
+    </header>
+    
+    <main class="main-container">
+        <div class="main-col-1">
+            <div class="card-row-1">
+                <div class="card-col">
+                    <div class="sensor-title">pH Level</div>
+                    <div class="sensor-readings">
+                        <div class="sensor-reading">7</div>
+                        <div class="sensor-status">Optimal</div>
+                    </div>
+                </div>
+
+                <div class="card-col">
+                    <div class="sensor-title">Water Level</div>
+                    <div class="sensor-readings">
+                        <div class="sensor-reading">70%</div>
+                        <div class="sensor-status">Low</div>
+                    </div>
+                </div>
+
+                <div class="card-col">
+                    <div class="sensor-title">Turbidity</div>
+                    <div class="sensor-readings">
+                        <div class="sensor-reading">7</div>
+                        <div class="sensor-status">Optimal</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-row-2"></div>
+        </div>
+
+        <div class="main-col-2">
+            <div class="alert-container">
+                <div class="alert-title">Alerts</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-container">
+        <h4 class="footer-details">Copyright ©2025 Aquaponics</h4>
+    </footer>
+
+    <script>
+        function goToLoginPage() {
+            window.location.href = "login.html";
+        }
+    </script>
+    
 </body>
 </html>

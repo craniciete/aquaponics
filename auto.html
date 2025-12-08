@@ -1,0 +1,15 @@
+<script type="module">
+import { db } from "./firebase.js";
+import { ref, onValue } from 
+"https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+const logsRef = ref(db, "hydroponics/logs");
+
+onValue(logsRef, snapshot => {
+  const data = snapshot.val();
+  const last = Object.values(data).pop();
+  document.getElementById("water").innerText = last.water;
+  document.getElementById("ph").innerText = last.ph;
+  document.getElementById("turb").innerText = last.turb_status;
+});
+</script>
