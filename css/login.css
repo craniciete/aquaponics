@@ -1,29 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #151515;
 }
 
 .main-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #151515;
     height: 100vh;
 }
 
 .card-container {
-    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #222222;
     width: 30%;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(176, 244, 171, 0.6); 
+    padding-bottom: 40px;
 }
 
 .logo-container {
@@ -39,28 +42,140 @@
 
 .logo-container h1 {
     color: #C3DB94;
-    font-size: 24px;
+    font-size: 28px;
+    margin-top: 10px;
 }
 
 .card-container input {
-    padding: 20px;
-    border: 0;
-    border-radius: 5px;
-    color: #333;
-    margin: 8px;
-    width: 400px;
-    height: 60px;
+    padding: 18px 20px;
+    border: 1px solid rgba(195, 219, 148, 0.6);
+    border-radius: 40px;
+    margin: 8px 0;
+    width: 80%;
+    height: 50px;
+    font-size: 14px;
+    color: #222;
+}
+
+.card-container input::placeholder {
+    color: rgba(34, 34, 34, 0.6);
 }
 
 .card-container button {
     font-size: 16px;
-    padding: 20px;
-    border: 0;
+    padding: 15px 20px;
+    border: 1px solid #C3DB94;
     border-radius: 40px;
-    color: #ffff;
+    color: #151515;
     background-color: #C3DB94;
-    margin: 32px;
-    width: 400px;
-    height: 60px;
+    margin: 20px 0;
+    width: 80%;
+    height: 50px;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-container button:hover {
+    background-color: #b0f4ab;
+    color: #151515;
+}
+
+#qrBtn {
+    background-color: transparent;
+    color: #C3DB94;
+    border: 1px solid #C3DB94;
+}
+
+#qrBtn:hover {
+    background-color: #b0f4ab;
+    color: #151515;
+}
+
+#qr-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-status {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #222222;
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(176, 244, 171, 0.6);
+    text-align: center;
+    color: white;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+}
+
+.modal-content #qr-container {
+    margin: auto;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #C3DB94;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .card-container {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        width: 70%;
+    }
+
+    .card-container input, .card-container button {
+        width: 90%;
+    }
+
+    .logo-container img {
+        width: 30%;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        width: 90%;
+    }
+
+    .card-container input, .card-container button {
+        width: 100%;
+    }
+
+    .logo-container img {
+        width: 40%;
+    }
 }

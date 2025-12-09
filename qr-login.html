@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Scan</title>
+</head>
+<body style="background:#151515; color:white; display:flex; justify-content:center; align-items:center; height:100vh; flex-direction:column;">
+    <h2>QR Login</h2>
+    <p id="status">Processing...</p>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+    <script>
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyBIKQ6DzjZmbwrMfRdf5n19aLt8cFIwdt8",
+            authDomain: "aquaponics-48aea.firebaseapp.com",
+            databaseURL: "https://aquaponics-48aea-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "aquaponics-48aea",
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+        const status = document.getElementById("status");
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        if (token) {
+            db.ref("qr-login/" + token).update({ used: true })
+                .then(() => status.innerText = "QR scanned! You can go back to the PC.")
+                .catch(err => status.innerText = "Error: " + err.message);
+        } else {
+            status.innerText = "Invalid QR token!";
+        }
+    </script>
+</body>
+</html>
