@@ -1,5 +1,3 @@
-import firebase from "firebase/compat/app";
-
 const firebaseConfig = {
   apiKey: "AIzaSyBIKQ6DzjZmbwrMfRdf5n19aLt8cFIwdt8",
   authDomain: "aquaponics-48aea.firebaseapp.com",
@@ -8,4 +6,5 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-const db = firebase.database(app);
+
+const db = firebase.database();

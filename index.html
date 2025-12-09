@@ -7,48 +7,65 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header class="header-container">
         <div class="header-logo">
             <img src="assets/hydroponic.png" alt="aquaponics-logo">
             <div class="logo-title">Aquaponics</div>
         </div>
-        <button type="button" class="logout-button" onclick=goToLoginPage()>Log out</button>        
+        <button type="button" class="logout-button" onclick="goToLoginPage()">Log out</button>
     </header>
-    
+
     <main class="main-container">
         <div class="main-col-1">
             <div class="card-row-1">
+                
                 <div class="card-col">
                     <div class="sensor-title">pH Level</div>
                     <div class="sensor-readings">
-                        <div class="sensor-reading">7</div>
-                        <div class="sensor-status">Optimal</div>
+                        <div class="sensor-reading" id="ph_value">--</div>
+                        <div class="sensor-status" id="ph_condition">--</div>
                     </div>
                 </div>
 
                 <div class="card-col">
                     <div class="sensor-title">Water Level</div>
                     <div class="sensor-readings">
-                        <div class="sensor-reading">70%</div>
-                        <div class="sensor-status">Low</div>
+                        <div class="sensor-reading" id="water_value">--</div>
+                        <div class="sensor-status" id="water_condition">--</div>
                     </div>
                 </div>
 
                 <div class="card-col">
                     <div class="sensor-title">Turbidity</div>
                     <div class="sensor-readings">
-                        <div class="sensor-reading">7</div>
-                        <div class="sensor-status">Optimal</div>
+                        <div class="sensor-reading" id="turbidity_value">--</div>
+                        <div class="sensor-status" id="turbidity_status">--</div>
                     </div>
                 </div>
             </div>
 
-            <div class="card-row-2"></div>
+            <div class="card-row-2">
+                <table class="logs-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Timestamp</th>
+                            <th>pH</th>
+                            <th>Water Level</th>
+                            <th>Turbidity</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="logs_table_body">
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <div class="main-col-2">
             <div class="alert-container">
-                <div class="alert-title">Alerts</div>
+                <div class="alert-title">Alert</div>
             </div>
         </div>
     </main>
@@ -62,6 +79,12 @@
             window.location.href = "login.html";
         }
     </script>
-    
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script src="js/database.js"></script>
+    <script src="js/app.js"></script>
+
 </body>
 </html>

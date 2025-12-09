@@ -117,6 +117,34 @@ body {
     font-weight: bold;
 }
 
+.logs-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 20px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.logs-table thead {
+    background: #222222;
+    font-weight: bold;
+}
+
+.logs-table th, 
+.logs-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #222222;
+    text-align: left;
+}
+
+.logs-table tr:hover {
+    background: #222222;
+}
+
+.logs-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
 
 .footer-container {
     padding-top: 40px;
